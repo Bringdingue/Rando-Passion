@@ -6,9 +6,9 @@ const router = express.Router();
 // Import And Use Routers Here
 /* ************************************************************************* */
 
-const itemsRouter = require("./items/router");
+const randoRouter = require("./rando/router");
 
-router.use("/items", itemsRouter);
+router.use("/vosRando", randoRouter);
 
 /* ************************************************************************* */
 

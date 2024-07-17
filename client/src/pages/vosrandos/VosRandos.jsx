@@ -1,7 +1,7 @@
-import "./MesRandos.css";
-import maRandoImage from "../../assets/images/Passerelles.jpg";
+import "./VosRandos.css";
+import vosRandoImage from "../../assets/images/Passerelles.jpg";
 
-function MesRandos() {
+function VosRandos() {
   const adjustTextareaHeight = (e) => {
     e.target.style.height = "auto";
     e.target.style.height = `${e.target.scrollHeight}px`;
@@ -9,12 +9,12 @@ function MesRandos() {
 
   return (
     <main>
-      <div className="mes-randos">
-        <h1>Mes Randos</h1>
-        <img className="ma-rando-image" src={maRandoImage} alt="" />
+      <div className="vos-randos">
+        <h1>Vos Randos</h1>
+        <img className="vos-rando-image" src={vosRandoImage} alt="" />
         <h2>Passerelles himalayennes du Monteynard</h2>
       </div>
-      <div className="text-mes-randos">
+      <div className="text-vos-randos">
         <h3>lieux: Treffort</h3>
         <h3>description:</h3>
         <p>
@@ -44,4 +44,4 @@ function MesRandos() {
   );
 }
 
-export default MesRandos;
+export default VosRandos;
