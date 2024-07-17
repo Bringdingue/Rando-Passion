@@ -1,0 +1,11 @@
+.accueil-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.accueil-image {
+  display: flex;
+  width: 50%;
+  border-radius: 1rem;
+}
