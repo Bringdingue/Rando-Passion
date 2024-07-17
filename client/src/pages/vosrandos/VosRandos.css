@@ -4,6 +4,23 @@
   text-align: center;
 }
 
+.img-container {
+  text-align: center;
+}
+
+.add {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.add-image {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
 .vos-rando-image {
   width: 50vw;
   border-radius: 1rem;

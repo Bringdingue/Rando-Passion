@@ -6,6 +6,8 @@ import Accueil from "./pages/accueil/Accueil";
 import MesRandos from "./pages/mesrandos/MesRandos";
 import VosRandos from "./pages/vosrandos/VosRandos";
 import Connexion from "./pages/connexion/Connexion";
+import Inscription from "./pages/inscription/Inscription";
+import AjoutRando from "./pages/ajoutRando/AjoutRando";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,16 @@ const router = createBrowserRouter([
       {
         path: "/Connexion",
         element: <Connexion />,
+      },
+
+      {
+        path: "/Inscription",
+        element: <Inscription />,
+      },
+
+      {
+        path: "/Ajout-Rando",
+        element: <AjoutRando />,
       },
     ],
   },

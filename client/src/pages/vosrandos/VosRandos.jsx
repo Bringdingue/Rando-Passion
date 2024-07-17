@@ -1,5 +1,7 @@
 import "./VosRandos.css";
+import { Link } from "react-router-dom";
 import vosRandoImage from "../../assets/images/Passerelles.jpg";
+import addImage from "../../assets/images/plus.png";
 
 function VosRandos() {
   const adjustTextareaHeight = (e) => {
@@ -10,8 +12,15 @@ function VosRandos() {
   return (
     <main>
       <div className="vos-randos">
-        <h1>Vos Randos</h1>
-        <img className="vos-rando-image" src={vosRandoImage} alt="" />
+        <div className="img-container">
+          <div className="add">
+            <h1>Vos Randos</h1>
+            <Link to="/Ajout-Rando">
+              <img className="add-image" src={addImage} alt="add" />
+            </Link>
+          </div>
+          <img className="vos-rando-image" src={vosRandoImage} alt="" />
+        </div>
         <h2>Passerelles himalayennes du Monteynard</h2>
       </div>
       <div className="text-vos-randos">

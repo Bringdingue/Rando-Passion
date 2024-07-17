@@ -2,27 +2,27 @@ const AbstractSeeder = require("./AbstractSeeder");
 
 class UserSeeder extends AbstractSeeder {
   constructor() {
-    // Call the constructor of the parent class (AbstractSeeder) with appropriate options
+    // Appelle le constructeur de la classe parente (AbstractSeeder) avec les options appropriées
     super({ table: "user", truncate: true });
   }
 
-  // The run method - Populate the 'user' table with fake data
-
+  // La méthode run - Remplir la table 'user' avec des données fictives
   run() {
-    // Generate and insert fake data into the 'user' table
+    // Générer et insérer des données fictives dans la table 'user'
     for (let i = 0; i < 10; i += 1) {
-      // Generate fake user data
+      // Générer des données utilisateur fictives
       const fakeUser = {
-        email: this.faker.internet.email(), // Generate a fake email using faker library
-        password: this.faker.internet.password(), // Generate a fake password using faker library
-        refName: `user_${i}`, // Create a reference name for the user
+        username: this.faker.internet.userName(), // Générer un nom d'utilisateur fictif
+        email: this.faker.internet.email(), // Générer un email fictif
+        password: this.faker.internet.password(), // Générer un mot de passe fictif
+        refName: `user_${i}`, // Créer un nom de référence pour l'utilisateur
       };
 
-      // Insert the fakeUser data into the 'user' table
-      this.insert(fakeUser); // insert into user(email, password) values (?, ?)
+      // Insérer les données fictives de l'utilisateur dans la table 'user'
+      this.insert(fakeUser); // insérer dans user(username, email, password) les valeurs (?, ?, ?)
     }
   }
 }
 
-// Export the UserSeeder class
+// Exporter la classe UserSeeder
 module.exports = UserSeeder;
