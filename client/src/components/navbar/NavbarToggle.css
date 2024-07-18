@@ -17,18 +17,18 @@ body {
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  padding: 0 20px;
 }
 
 .navbar-item {
-  color: #fff;
+  color: #d9d9d9;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s;
+  padding: 10px;
 }
 
 .navbar-item:hover {
-  color: #ff6347;
+  color: white;
 }
 
 @media screen and (max-width: 768px) {
@@ -49,5 +49,15 @@ body {
   .navbar-item {
     padding: 10px;
     text-align: center;
+  }
+}
+
+@media screen and (min-width: 520px) {
+  .navbar-item {
+    color: #d9d9d9;
+    text-decoration: none;
+    font-size: 2rem;
+    transition: color 0.3s;
+    padding: 10px;
   }
 }

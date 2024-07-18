@@ -1,25 +1,7 @@
-/* .header-background {
-  width: 15vw;
-}
-
 .header-container {
   display: flex;
   align-items: center;
-  background-color: #5d7052;
-}
-
-.title {
-  text-align: center;
-  font-size: 3vw;
-  color: #d9d9d9;
-} */
-
-/* Header.css */
-
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* To distribute space evenly between elements */
+  justify-content: space-between;
   background-color: #5d7052;
   padding: 10px 20px;
 }
@@ -34,16 +16,6 @@
   font-size: 3vw;
   color: #d9d9d9;
   margin: 0;
-  flex: 1; /* This will make the title take up remaining space */
-  text-align: center;
-}
-
-/* Ensure the navbar styles apply properly */
-.navbar {
-  width: auto; /* Adjust width as needed */
-}
-
-.navbar-container {
+  flex: 1;
   display: flex;
-  align-items: center;
 }
