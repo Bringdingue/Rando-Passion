@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+.img-container {
+  text-align: center;
+}
+
 .ma-rando-image {
   width: 50vw;
   border-radius: 1rem;

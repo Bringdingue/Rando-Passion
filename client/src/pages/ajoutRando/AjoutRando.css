@@ -1,80 +1,38 @@
-.form-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  padding: 2rem;
+.ajout-rando {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em;
+  background-color: #f4f4f4;
+  border-radius: 10px;
 }
 
-.form-group0,
-.form-group1,
-.form-group2,
-.form-group3,
-.form-group4 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+.ajout-rando h1 {
+  text-align: center;
+  margin-bottom: 1em;
 }
 
-.error1,
-.error2 {
-  color: red;
-  font-size: 50px; /* corrected from 5Opx to 50px */
+.ajout-rando form div {
+  margin-bottom: 1em;
 }
 
-#pseudo2,
-#mail2,
-#confirm-mail2,
-#mot2,
-#confirm-mot2 {
-  border-right-color: rgb(0, 0, 0);
-  padding: 1rem;
-  margin: 2rem;
-  width: 60vw;
-  max-width: 300px;
+.ajout-rando label {
+  display: block;
+  margin-bottom: 0.5em;
 }
 
-#mot2 {
-  margin-right: 4rem;
+.ajout-rando input[type="text"],
+.ajout-rando textarea {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.password-input {
-  margin-left: 2rem;
-  display: flex;
+.ajout-rando input[type="file"] {
+  padding: 0.5em;
 }
 
-.password-input2 {
-  margin-left: 0;
-  display: flex;
-}
-
-.toggle-password {
-  display: flex;
-  width: 20vw;
-  background-color: transparent;
-  border: transparent;
-  max-width: 4vw;
-  height: 4vh;
-  margin-top: -4rem;
-  margin-left: 20rem;
-}
-
-p {
-  display: flex;
-  justify-content: left;
-}
-
-.back-home2 {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-  text-decoration: none;
-}
-
-.validate2 {
+.ajout-rando button {
   display: block;
   min-width: 100px;
   color: black;
@@ -88,7 +46,7 @@ p {
   cursor: pointer;
 }
 
-.validate2:hover {
+.ajout-rando button:hover {
   background-color: #5d7052;
   color: #d9d9d9;
 }

@@ -18,33 +18,40 @@ function Register() {
   const handleRegisterForm = (e) => {
     setRegisterForm({ ...registerForm, [e.target.name]: e.target.value });
   };
+
   const handleSubmitForm = async (event) => {
     event.preventDefault();
 
+    if (registerForm.password !== registerForm.confirmPassword) {
+      notifyFail("Les mots de passe ne correspondent pas");
+      return;
+    }
+
     try {
-      // Appel à l'API pour créer un nouvel utilisateur
       const response = await fetch(`${ApiUrl}/auth/register`, {
         method: "post",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(registerForm),
+        body: JSON.stringify({
+          username: registerForm.username,
+          email: registerForm.mail,
+          password: registerForm.password,
+        }),
       });
 
-      // Redirection vers la page de connexion si la création réussit
       if (response.status === 201) {
         notifySuccess(
           "Votre profil a bien été créé. Vous pouvez vous connecter"
         );
         setTimeout(() => {
           navigate("/connexion");
-        }, 2000); // Attendre 2 secondes avant de rediriger
+        }, 2000);
       } else {
-        // Log des détails de la réponse en cas d'échec
-        console.info(response);
-        notifyFail("Une erreur s'est produite");
+        const errorData = await response.json();
+        notifyFail(errorData.message || "Une erreur s'est produite");
       }
     } catch (err) {
-      // Log des erreurs possibles
       console.error(err);
+      notifyFail("Une erreur s'est produite");
     }
   };
 
@@ -63,14 +70,13 @@ function Register() {
       <div className="form-group2">
         <label htmlFor="mail">Adresse mail</label>
         <input
-          type="mail"
+          type="email"
           name="mail"
           className="nes-input"
           value={registerForm.mail}
           onChange={handleRegisterForm}
         />
       </div>
-
       <div className="form-group3">
         <label htmlFor="password">Mot de passe</label>
         <input

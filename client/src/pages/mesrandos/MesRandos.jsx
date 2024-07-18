@@ -10,8 +10,10 @@ function MesRandos() {
   return (
     <main>
       <div className="mes-randos">
-        <h1>Mes Randos</h1>
-        <img className="ma-rando-image" src={maRandoImage} alt="" />
+        <div className="img-container">
+          <h1>Mes Randos</h1>
+          <img className="ma-rando-image" src={maRandoImage} alt="" />
+        </div>
         <h2>Passerelles himalayennes du Monteynard</h2>
       </div>
       <div className="text-mes-randos">

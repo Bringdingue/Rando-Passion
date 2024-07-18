@@ -3,31 +3,67 @@ const AbstractRepository = require("./AbstractRepository");
 class UserRepository extends AbstractRepository {
   constructor() {
     // Call the constructor of the parent class (AbstractRepository)
-    // and pass the table name "item" as configuration
+    // and pass the table name "Recipe" as configuration
     super({ table: "user" });
   }
 
-  async readAll() {
-    // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+  // The C of CRUD - Create operation
 
-    // Return the array of items
+  async create(user) {
+    // Execute the SQL INSERT query to add a new Recipe to the "rows" table
+    const [result] = await this.database.query(
+      `INSERT INTO ${this.table} (username, email, password) VALUES (?, ?, ?)`,
+      [user.username, user.email, user.hashedPassword]
+    );
+
+    // Return the ID of the newly inserted Recipe
+    return result.insertId;
+  }
+
+  // The Read method - R from CRUD (all users)
+  async readAll() {
+    // Execute the SQL SELECT query to retrieve all the rows in the "user" table
+    const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
+
+    //  Return the table of rows
     return rows;
   }
 
-  // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
+  // Read method - CRUD R (user by ID)
+  async readByEmailWithPassword(email) {
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE email = ?`,
+      [email]
+    );
 
-  // async update(item) {
-  //   ...
+    // Return the first line if found, otherwise null
+    return rows.length > 0 ? rows[0] : null;
+  }
+
+  // The update method - CRUD U
+  // async update(id, updatedFields) {
+  //   // Build the update SQL query
+  //   const fields = Object.keys(updatedFields)
+  //     .map((key) => `${key} = ?`)
+  //     .join(", ");
+
+  //   const values = Object.values(updatedFields);
+  //   values.push(id);
+
+  //   await this.database.query(
+  //     `UPDATE ${this.table} SET ${fields} WHERE id = ?`,
+  //     values
+  //   );
+
+  //   return this.readById(id); // Return the updated user
   // }
 
-  // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
+  // The Delete method - CRUD D
+  async delete(id) {
+    await this.database.query(`DELETE FROM ${this.table} WHERE id = ?`, [id]);
 
-  // async delete(id) {
-  //   ...
-  // }
+    return true; // Return true to indicate that the user has been deleted
+  }
 }
 
 module.exports = UserRepository;

@@ -13,14 +13,14 @@ class RandoSeeder extends AbstractSeeder {
         location: "Treffort",
         description:
           "D'une longueur de 12,5 km, le circuit de randonnée des passerelles himalayennes est une boucle originale qui vous fera franchir les gorges du Drac et celles de l'Ebron en empruntant successivement la passerelle himalayenne du Drac (220m) et la passerelle himalayenne de l'Ebron (180m).",
-        image: "Passerelles.jpg",
+        image: "Passerelles2.jpg",
         user_id: this.getRef(`user_0`).insertId,
         refName: "Passerelles",
       },
     ];
 
-    randos.forEach((menu) => {
-      this.insert(menu);
+    randos.forEach((rando) => {
+      this.insert(rando);
     });
 
     await Promise.all(this.promises);

@@ -2,32 +2,37 @@ const AbstractRepository = require("./AbstractRepository");
 
 class RandoRepository extends AbstractRepository {
   constructor() {
-    // Call the constructor of the parent class (AbstractRepository)
-    // and pass the table name "item" as configuration
     super({ table: "rando" });
   }
 
-  async readAll() {
-    // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+  async create(rando) {
+    const [result] = await this.database.query(
+      `INSERT INTO ${this.table} (title, location, description, image, user_id) VALUES (?, ?, ?, ?, ?)`,
+      [
+        rando.title,
+        rando.location,
+        rando.description,
+        rando.image,
+        rando.user_id,
+      ]
+    );
+    return result.insertId;
+  }
 
-    // Return the array of items
+  async readAll() {
+    const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
     return rows;
   }
 
-  // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
+  async readByRando(user) {
+    const [rows] = await this.database.query(
+      `SELECT r.* FROM ${this.table} r INNER JOIN user u ON r.user_id = u.id WHERE u.id = ?`,
+      [user]
+    );
+    return rows;
+  }
 
-  // async update(item) {
-  //   ...
-  // }
-
-  // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
-
-  // async delete(id) {
-  //   ...
-  // }
+  // TODO: Implement the update and delete operations
 }
 
 module.exports = RandoRepository;

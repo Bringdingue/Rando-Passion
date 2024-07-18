@@ -17,6 +17,7 @@ function Login() {
 
   const handleLoginInfos = (e) => {
     setLoginInfos({ ...loginInfos, [e.target.name]: e.target.value });
+    // console.log(loginInfos);
   };
 
   const handleLogin = async (e) => {
@@ -37,16 +38,11 @@ function Login() {
 
       if (response.status === 200) {
         const responseData = await response.json();
-        console.info("API response:", responseData);
+        // console.info("API response:", responseData);
         if (responseData.user) {
           const { username } = responseData.user;
-          Login(responseData.user);
-          if (loginInfos.pseudo === "admin") {
-            navigate("/admin");
-          } else {
-            navigate("/");
-          }
           notifySuccess(username);
+          navigate("/"); // Redirige vers la page d'accueil après connexion réussie
         } else {
           console.error("User object is missing in the response");
         }
@@ -56,6 +52,7 @@ function Login() {
       }
     } catch (error) {
       console.error("Error during login:", error);
+      notifyFail();
     }
   };
 
@@ -65,7 +62,7 @@ function Login() {
         <div className="form-group1">
           <label htmlFor="mail">Adresse mail</label>
           <input
-            type="mail"
+            type="email"
             name="mail"
             value={loginInfos.mail}
             onChange={handleLoginInfos}
