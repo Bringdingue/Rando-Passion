@@ -36,7 +36,7 @@ function VosRandos() {
   return (
     <main>
       <div className="vos-randos">
-        <div className="img-container">
+        <div>
           <div className="add">
             <h1>Vos Randos</h1>
             <Link to="/Ajout-Rando">
@@ -45,18 +45,20 @@ function VosRandos() {
           </div>
         </div>
         {randos.map((rando) => (
-          <div key={rando.id}>
+          <div className="img-container" key={rando.id}>
             <img
               className="vos-rando-image"
               src={`/images/${rando.image}`}
               alt={rando.title}
             />
-            <h2>{rando.title}</h2>
-            <div className="text-vos-randos">
-              <h3>lieux: {rando.location}</h3>
-              <h3>description:</h3>
-              <p>{rando.description}</p>
-              <p>publié par: {rando.user_id}</p>
+            <div className="text-container">
+              <h2>{rando.title}</h2>
+              <div className="text-vos-randos">
+                <h3>lieux: {rando.location}</h3>
+                <h3>description:</h3>
+                <p>{rando.description}</p>
+                <p>publié par: {rando.user_id}</p>
+              </div>
             </div>
           </div>
         ))}

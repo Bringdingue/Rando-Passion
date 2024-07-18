@@ -44,3 +44,23 @@ textarea {
   width: 100%;
   box-sizing: border-box;
 }
+
+@media screen and (min-width: 520px) {
+  .img-container {
+    display: flex;
+  }
+
+  .vos-rando-image {
+    display: flex;
+    justify-content: flex-start;
+    width: 50vw;
+    height: 50vw;
+    border-radius: 1rem;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+}
