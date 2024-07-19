@@ -39,7 +39,7 @@ function AjoutRando() {
       notifySuccess("Rando ajoutée avec succès");
 
       // Rediriger vers la page VosRandos
-      navigate("/vosRandos");
+      navigate("/Vos-Randos");
     } catch (error) {
       console.error("Erreur lors de l'ajout de la rando:", error);
       notifyFail("Une erreur s'est produite");
