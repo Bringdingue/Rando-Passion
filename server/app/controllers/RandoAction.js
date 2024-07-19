@@ -18,38 +18,23 @@ const randoByUser = async (req, res, next) => {
   }
 };
 
-// const add = async (req, res, next) => {
-//   try {
-//     const { title, location, description, user_id } = req.body;
-//     const image = req.file ? req.file.filename : null;
-
-//     const newRando = {
-//       title,
-//       location,
-//       description,
-//       image,
-//       user_id,
-//     };
-
-//     const newRandoId = await tables.rando.create(newRando);
-//     res.status(201).json({ id: newRandoId });
-//   } catch (err) {
-//     next(err);
-//   }
-// };
-
 const add = async (req, res, next) => {
-  // Extract the item data from the request body
-  const formData = req.body;
-
   try {
-    // Insert the item into the database
-    const insertId = await tables.rando.create(formData);
+    const { title, location, description, userId } = req.body;
 
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    res.status(201).json({ insertId });
+    const newRando = {
+      title,
+      location,
+      description,
+
+      userId,
+    };
+    // console.log("coucou2");
+    // console.log(newRando);
+    const newRandoId = await tables.rando.create(newRando);
+
+    res.status(201).json({ id: newRandoId });
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };

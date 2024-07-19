@@ -6,14 +6,14 @@ class RandoRepository extends AbstractRepository {
   }
 
   async create(rando) {
+    // console.log(rando);
     const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (title, location, description, image, user_id) VALUES (?, ?, ?, ?, ?)`,
+      `INSERT INTO ${this.table} (title, location, description, user_id) VALUES (?, ?, ?, ?)`,
       [
-        rando.title,
-        rando.location,
-        rando.description,
-        rando.image,
-        rando.user_id,
+        rando.title, // Correction ici
+        rando.location, // Correction ici
+        rando.description, // Correction ici
+        rando.userId, // Correction ici
       ]
     );
     return result.insertId;
